@@ -15,7 +15,7 @@ class Message {
     }
 
     /**
-     * This function add a new message on the chat, and check if the message from chat bot or from user
+     * This method add a new message on the chat, and check if the message from chat bot or from user
      * */
     addMessage = () => {
         let li = document.createElement("li");
@@ -31,13 +31,16 @@ class Message {
         });
     }
 
+    /**
+     * This method add error message on the chat with red "Fehler" word on the header
+     * */
     addServerErrorMessage = () => {
         this.isError = true
         this.addMessage()
     }
 
     /**
-     * This function convert the chat bot message as li html tag and add it on the chat
+     * This method convert the chat bot message as li html tag and add it on the chat
      * */
     chatBotMessage = () => {
         let row = '<div class="chatbot-message-el">\n' +
@@ -77,7 +80,7 @@ class Message {
     }
 
     /**
-     * This function convert the chat bot message as li html tag and add it on the chat
+     * This method convert the user message as li html tag and add it on the chat
      * */
     userMessage = () => {
         let row = '<li>\n' +

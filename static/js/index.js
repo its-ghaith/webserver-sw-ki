@@ -14,7 +14,6 @@ function startVideo() {
         console.log(err);
     });
 }
-
 window.onload = function () {
     startVideo();
 }
@@ -92,6 +91,9 @@ const sendPhotoFromUrl = () => {
     });
 }
 
+/**
+ * check if the string match the url pattern
+ * */
 function isURL(str) {
     let pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name

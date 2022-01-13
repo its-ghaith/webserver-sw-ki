@@ -183,7 +183,7 @@ def detect_from_url():
         :param: request body:
                     indexGuessedItem (int): Index of guessed Item
                     numTry (int): number of try. from 1-4
-                    theFile (base64 image): Image URL
+                    theFile (string): Image URL
 
         :return:
             If client expected the item
@@ -297,7 +297,7 @@ def _is_url_image(image_url):
         image_formats = ("image/png", "image/jpeg", "image/jpg")
         r = requests.head(image_url)
 
-        if (r.headers["content-type"] in image_formats) or r.headers["content-type"].startswith('image'):
+        if (r.headers["content-type"].lower() in image_formats) or r.headers["content-type"].startswith('image'):
             return True
         return False
     except Exception:

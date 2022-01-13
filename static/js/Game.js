@@ -1,5 +1,4 @@
 class Game {
-
     constructor() {
         // declare index of guessed item, The number represents any tourist attraction chosen by the computer.
         // The names of the attractions are not written here to hide any information from the user
@@ -11,24 +10,55 @@ class Game {
         this._numTry = 0 // init the attempts number
     }
 
+    /**
+     * This method manage all cases of the game result
+     * @param res {object} should have result, message, isError, hint
+     * */
     manageResult = (res) => {
-    if (res.isError) {
-        let message = new Message(res.message)
-        message.addServerErrorMessage()
-        return;
-    }
-
-    if (!res.message) {
-        this.userLossInSw();
-    } else if (!res.result) {
-        if (this.numTry <= 2) {
-            this.userLossOneAttempt(res);
+        if (res.isError) {
+            let message = new Message(res.message)
+            message.addServerErrorMessage()
+            return;
         }
-    } else {
-        this.userWinInSW(res);
-    }
-}
 
+        if (!res.message) {
+            this.userLossInSw();
+        } else if (!res.result) {
+            if (this.numTry <= 2) {
+                this.userLossOneAttempt(res);
+            }
+        } else {
+            this.userWinInSW(res);
+        }
+    }
+
+    /**
+     * This method reset the numTry and add the user win message
+     * */
+    userWinInSW(res) {
+        this.numTry = 0
+        let message = new Message(res.message)
+        message.addMessage()
+        message.hint = res.hint
+    }
+
+    /**
+     * This method increase the numTry and add the user loss message in one try
+     * */
+    userLossOneAttempt(res) {
+        this.numTry += 1
+
+        let message = new Message(res.message)
+        message.addMessage()
+        message.hint = res.hint
+
+        message = new Message("Du hast noch " + (4 - this.numTry) + " Versuche.")
+        message.addMessage()
+    }
+
+     /**
+     * This method reset the numTry and add the user loss message in one SW
+     * */
     userLossInSw() {
         this.numTry = 0
 
@@ -42,24 +72,6 @@ class Game {
         message.addMessage()
 
         this.indexGuessedItem = this.chooseAttractions()
-    }
-
-    userWinInSW(res) {
-        this.numTry = 0
-        let message = new Message(res.message)
-        message.addMessage()
-        message.hint = res.hint
-    }
-
-    userLossOneAttempt(res) {
-        this.numTry += 1
-
-        let message = new Message(res.message)
-        message.addMessage()
-        message.hint = res.hint
-
-        message = new Message("Du hast noch " + (4 - this.numTry) + " Versuche.")
-        message.addMessage()
     }
 
     /**
