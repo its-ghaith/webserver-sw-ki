@@ -1,6 +1,9 @@
 # webserver-sw-ki  
 This repository is for an artificial intelligence project. The web server should think of a Sightseeing and the user should guess it.
 
+## Training Process
+[The documentation of training process is in](./training_prozess/Dokumentation_Training_Val_Prozess.docx)
+
 ## Frontend
 The front end is purely JavaScript, without frameworks. However, Bootstrap was used for styling in order to be able to implement the best possible mobile-friendly implementation. CSS was only used in certain cases.
 
@@ -13,8 +16,8 @@ Next to it are the buttons for sending the message or photo to the server.
 
 **The HTML file is under this path: `./templates/index.html`**
 **The page look so:** 
-![enter image description here](/img/1.png)
-![enter image description here](/img/2.png)
+![Design the web site 1](/img/1.png)
+![Design the web site 2](/img/2.png)
 
 ###  JavaScript
 consists of three files:
@@ -53,6 +56,7 @@ The client sends either a photo or a link of a SW to guess the imaginary SW.
   
 The web server is implemented by Flask. The library to recognize images is YOLOv5.
 list of all attractions is in the dictionray `SW_list` with the hints.
+The model path is: `./yolov5/weights/best.pt` in the path program it is save in the variable `model_path` 
 
 ### Functions:
 | Name | params | Funktion | return |
