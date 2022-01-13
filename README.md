@@ -2,7 +2,7 @@
 This repository is for an artificial intelligence project. The web server should think of a Sightseeing and the user should guess it.
 
 ## Training Process
-[The documentation of training process is in:](./training_prozess/Dokumentation_Training_Val_Prozess.docx)
+[The documentation of training process](./training_prozess/Dokumentation_Training_Val_Prozess.pdf)
 
 ## Frontend
 The front end is purely JavaScript, without frameworks. However, Bootstrap was used for styling in order to be able to implement the best possible mobile-friendly implementation. CSS was only used in certain cases.
