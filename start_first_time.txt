@@ -1,0 +1,14 @@
+sudo apt-get update
+sudo apt-get install ffmpeg libsm6 libxext6  -y
+sudo apt-get install python3-pip -y
+sudo pip3 install --no-cache-dir -r ./requirements.txt --user
+sudo apt-get install nginx -y
+cd /etc/nginx/sites-enabled
+
+// edit the a new flie as flaskapp and save it with the same name. plase read also the 
+// gunicorn paga at https://gunicorn.org/#deployment
+// you should change the server name in this file 
+
+sudo service nginx restart
+cd ~/webserver-sw
+sudo python3 -m gunicorn app:app
