@@ -1,6 +1,5 @@
 # webserver-sw-ki  
-This repository is for an artificial intelligence project. The web server should think of a Sightseeing and the user should guess it. 
-[To visit the DEMO website](https://its-ghaith.com/)
+This repository is for an artificial intelligence project. The web server should think of a Sightseeing and the user should guess it.
 
 ## Training Process
 [The documentation of training process](./training_prozess/Dokumentation_Training_Val_Prozess.pdf)
